@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">MyReddit</string>
+    <string name="no_topics_at_the_moment">No topics at the moment</string>
+    <string name="share">Share</string>
+    <string name="type_your_post">Type your post</string>
+    <string name="post">POST</string>
+    <string name="text_cannotbe_empty">Post cannot be empty</string>
+    <string name="text_post">Text post</string>
+    <string name="vote">Vote</string>
+    <string name="posts">Posts</string>
+</resources>
