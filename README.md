@@ -4,6 +4,9 @@
 This Test Driven Development boilerplate exmaple showcases the basic usage of 
 the Googl's architecture component with ViewModels.
 
+## Simple architecture of this code
+![alt text](https://raw.githubusercontent.com/medetzhakupov/tdd-mvvm-example/master/architecture.png)
+
 ## License
 ```
 Copyright 2016 BlueLine Labs, Inc.
