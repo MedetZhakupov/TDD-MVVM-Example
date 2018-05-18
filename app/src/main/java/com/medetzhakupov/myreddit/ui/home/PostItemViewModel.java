@@ -2,8 +2,6 @@ package com.medetzhakupov.myreddit.ui.home;
 
 import android.annotation.SuppressLint;
 import android.graphics.Color;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffColorFilter;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.support.v4.content.ContextCompat;
@@ -16,11 +14,8 @@ import com.medetzhakupov.myreddit.R;
 import com.medetzhakupov.myreddit.databinding.ItemPostBinding;
 import com.medetzhakupov.myreddit.model.Post;
 import com.medetzhakupov.myreddit.ui.recyclerview.BaseItemModel;
-import com.medetzhakupov.myreddit.ui.recyclerview.ItemAdapter;
 import com.medetzhakupov.myreddit.ui.recyclerview.ItemHolder;
 import com.medetzhakupov.myreddit.ui.recyclerview.ItemModel;
-
-import java.util.List;
 
 /**
  * Created by Medet Zhakupov.
@@ -97,7 +92,7 @@ public class PostItemViewModel extends BaseItemModel<ItemPostBinding, PostItemVi
         private void setListeners(final PostItemViewModel model, final ItemPostBinding binding) {
             binding.vote.setOnTouchListener(new CustomTouchListener(new OnVoteClickListener() {
                 @Override
-                public void onUpVoteClicked(Drawable drawable) {
+                public void onUpVoteClicked() {
                     if (model.post != null) {
                         model.post.incrementVote();
                         model.post.setVoteStatus(1);
@@ -108,7 +103,7 @@ public class PostItemViewModel extends BaseItemModel<ItemPostBinding, PostItemVi
                 }
 
                 @Override
-                public void onDownVoteClicked(Drawable drawable) {
+                public void onDownVoteClicked() {
                     if (model.post != null) {
                         model.post.decrementVote();
                         model.post.setVoteStatus(model.post.getVote() == 0 ? 0 : 2);
@@ -122,9 +117,9 @@ public class PostItemViewModel extends BaseItemModel<ItemPostBinding, PostItemVi
     }
 
     public interface OnVoteClickListener {
-        void onUpVoteClicked(Drawable drawable);
+        void onUpVoteClicked();
 
-        void onDownVoteClicked(Drawable drawable);
+        void onDownVoteClicked();
     }
 
     public interface OnVoteChangeListener {
@@ -148,9 +143,9 @@ public class PostItemViewModel extends BaseItemModel<ItemPostBinding, PostItemVi
                     v.getGlobalVisibleRect(rect);
                     int middle = (rect.right - rect.left) / 2;
                     if (middle < event.getRawX()) {
-                        onVoteClickListener.onDownVoteClicked(((TextView) v).getCompoundDrawables()[2]);
+                        onVoteClickListener.onDownVoteClicked();
                     } else {
-                        onVoteClickListener.onUpVoteClicked(((TextView) v).getCompoundDrawables()[0]);
+                        onVoteClickListener.onUpVoteClicked();
                     }
                     break;
             }

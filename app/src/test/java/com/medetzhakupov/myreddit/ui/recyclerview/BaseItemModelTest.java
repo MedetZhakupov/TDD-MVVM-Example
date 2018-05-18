@@ -11,7 +11,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import static my.com.maxis.hotlink.ui.views.recyclerview.ItemAdapter.ID_COUNTER;
+import static com.medetzhakupov.myreddit.ui.recyclerview.ItemAdapter.ID_COUNTER;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;

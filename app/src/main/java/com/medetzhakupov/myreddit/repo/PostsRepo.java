@@ -23,7 +23,7 @@ public class PostsRepo {
     private final List<Post> postList = new ArrayList<>(0);
 
     @Inject
-    PostsRepo() {
+    public PostsRepo() {
 
     }
 

@@ -12,7 +12,7 @@ import javax.inject.Inject;
 
 import io.reactivex.Observable;
 
-public class HomeViewModel extends ViewModel implements LifecycleObserver {
+public class HomeViewModel extends ViewModel {
 
     private final PostsRepo postsRepo;
 

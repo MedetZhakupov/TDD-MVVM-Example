@@ -11,7 +11,7 @@ import javax.inject.Inject;
 /**
  * Created by Medet Zhakupov.
  */
-public class CreatePostViewModel extends ViewModel implements LifecycleObserver {
+public class CreatePostViewModel extends ViewModel {
 
     private final PostsRepo postsRepo;
 
