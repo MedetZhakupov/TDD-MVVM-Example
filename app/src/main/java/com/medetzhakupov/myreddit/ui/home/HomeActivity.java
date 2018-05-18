@@ -24,6 +24,7 @@ import io.reactivex.disposables.Disposable;
 
 public class HomeActivity extends BaseActivity implements PostItemViewModel.OnVoteChangeListener {
 
+    private static final String KEY_RECYCLER_STATE = "key_recycler_state";
     @Inject
     Navigator navigator;
     @Inject
@@ -33,10 +34,12 @@ public class HomeActivity extends BaseActivity implements PostItemViewModel.OnVo
 
     ActivityMainBinding binding;
     HomeViewModel viewModel;
+    Bundle state;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        state = savedInstanceState;
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(HomeViewModel.class);
 
@@ -62,6 +65,12 @@ public class HomeActivity extends BaseActivity implements PostItemViewModel.OnVo
     }
 
     @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putParcelable(KEY_RECYCLER_STATE, binding.list.getLayoutManager().onSaveInstanceState());
+    }
+
+    @Override
     @SuppressWarnings("unchecked")
     protected Disposable[] subscriptions() {
         return new Disposable[]{
@@ -70,8 +79,8 @@ public class HomeActivity extends BaseActivity implements PostItemViewModel.OnVo
                         .subscribe(posts -> {
                     PostsAdapter adapter = (PostsAdapter) binding.list.getAdapter();
                     adapter.addPosts(posts);
-                    binding.list.scrollToPosition(adapter.getItemCount() - 1);
                     binding.setShowEmptyState(adapter.isEmpty());
+                    if (state != null) binding.list.getLayoutManager().onRestoreInstanceState(state.getParcelable(KEY_RECYCLER_STATE));
                 })
         };
     }
