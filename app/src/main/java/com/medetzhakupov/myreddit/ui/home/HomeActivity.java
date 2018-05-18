@@ -80,7 +80,10 @@ public class HomeActivity extends BaseActivity implements PostItemViewModel.OnVo
                     PostsAdapter adapter = (PostsAdapter) binding.list.getAdapter();
                     adapter.addPosts(posts);
                     binding.setShowEmptyState(adapter.isEmpty());
-                    if (state != null) binding.list.getLayoutManager().onRestoreInstanceState(state.getParcelable(KEY_RECYCLER_STATE));
+                    if (state != null) {
+                        binding.list.getLayoutManager().onRestoreInstanceState(state.getParcelable(KEY_RECYCLER_STATE));
+                        state = null;
+                    }
                 })
         };
     }
