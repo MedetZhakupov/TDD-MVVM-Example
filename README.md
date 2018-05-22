@@ -2,14 +2,13 @@
 [![Build Status](https://travis-ci.org/MedetZhakupov/TDD-MVVM-Example.svg?branch=master)](https://travis-ci.org/MedetZhakupov/TDD-MVVM-Example)
 
 This Test Driven Development boilerplate exmaple showcases the basic usage of 
-the Googl's architecture component with ViewModels.
+the Google's architecture component with ViewModels.
 
 ## Architecture diagram of this project
 ![alt text](https://raw.githubusercontent.com/medetzhakupov/tdd-mvvm-example/master/architecture.png)
 
 ## License
 ```
-Copyright 2016 BlueLine Labs, Inc.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
